@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { LyricistCompiledComponent } from '../lyricist-compiled/lyricist-compiled.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [LyricistCompiledComponent],
   template: `
 
     <ul>
