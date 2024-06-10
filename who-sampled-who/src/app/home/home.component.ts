@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LyricistCompiledComponent } from '../lyricist-compiled/lyricist-compiled.component';
 import { LyricistCompiled } from '../lyricist-compiled';
+import { SamplesService } from '../samples.service';
 
 @Component({
   selector: 'app-home',
@@ -28,5 +29,6 @@ import { LyricistCompiled } from '../lyricist-compiled';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  lyricsList: LyricistCompiled[] = [];
+  sampleService: SamplesService = inject(SamplesService);
 }

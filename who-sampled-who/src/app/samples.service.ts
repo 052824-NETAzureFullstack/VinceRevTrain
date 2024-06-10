@@ -6,8 +6,10 @@ import { LyricistCompiled } from './lyricist-compiled';
 })
 export class SamplesService {
   // Creating service to get music lyrics from Genius API
+lyricsList = [];
+
   getSongLyrics(): LyricistCompiled[] {
-    return this.LyricistCompiler;
+    return this.lyricsList;
   }
   constructor() { }
 }
