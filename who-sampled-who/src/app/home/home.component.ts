@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LyricistCompiledComponent } from '../lyricist-compiled/lyricist-compiled.component';
+import { LyricistCompiled } from '../lyricist-compiled';
 
 @Component({
   selector: 'app-home',
