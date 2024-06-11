@@ -23,7 +23,9 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 # Newly added 6/5/24
-*.editorconfig 
+*.editorconfig
+# Newly added 6/11/24 
+*.json
 
 # Visual Studio Code
 .vscode/*
