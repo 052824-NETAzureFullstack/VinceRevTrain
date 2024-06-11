@@ -6,12 +6,16 @@ import { LyricistCompiled } from './lyricist-compiled';
 })
 export class SamplesService {
   // Creating service to get music lyrics from Genius API
-lyricsList = [];
+  url = 'https://genius-song-lyrics1.p.rapidapi.com/song/recommendations/?id=2396871'
+  lyricsList = [];
+
 
 // filteredLyrics: LyricistCompiled[] = [];
 
-  getSongLyrics(): LyricistCompiled[] {
-    return this.lyricsList;
+  async getSongLyrics(): Promise<LyricistCompiled[]> {
+    const data = await fetch(this.url);
+    return await data.json() ?? [];
+    // return this.lyricsList;
   }
   constructor() {
    }

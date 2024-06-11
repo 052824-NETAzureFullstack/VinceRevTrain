@@ -1,12 +1,14 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { LyricistCompiledComponent } from '../lyricist-compiled/lyricist-compiled.component';
 import { LyricistCompiled } from '../lyricist-compiled';
 import { SamplesService } from '../samples.service';
 
+// Line 28 is incomplete
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LyricistCompiledComponent],
+  imports: [CommonModule, LyricistCompiledComponent],
   template: `
 
     <ul>
@@ -23,13 +25,14 @@ import { SamplesService } from '../samples.service';
       <form class="big-search" text-center>
           <input type="text" placeholder="Look up by track name or lyrics" #filter>
           <button class="primary" type="button" (click)="filterResults(filter.value)">Go</button>
-          <!-- NEEDS ATTENTION <app-lyricist-compiled *ngFor="let lyricist-compiled of filteredLyrics" [lyricist-compiled]="lyricist-compiled"></app-lyricist-compiled> -->
+          <app-lyricist-compiled *ngFor="let lyricist-compiled of filteredLyrics"></app-lyricist-compiled><!-- This is incomplete -->
       </form>
     </section>
   `,
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
   filterResults(text: string) {
     if (!text) {
       this.filteredLyrics = this.lyricsList;
@@ -43,7 +46,12 @@ export class HomeComponent {
   filteredLyrics: LyricistCompiled[] = [];
 
 constructor() {
-  this.lyricsList = this.sampleService.getSongLyrics();
-  this.filteredLyrics = this.lyricsList;
+    this.sampleService.getSongLyrics().then((lyricsList: LyricistCompiled[]) => {
+    this.lyricsList = lyricsList;
+    this.filteredLyrics = lyricsList;
+  });
+
+  // this.lyricsList = this.sampleService.getSongLyrics();
+  // this.filteredLyrics = this.lyricsList;
 }
 }
