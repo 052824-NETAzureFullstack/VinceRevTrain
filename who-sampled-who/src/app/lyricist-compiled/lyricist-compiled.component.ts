@@ -9,6 +9,7 @@ import { LyricistCompiled } from '../lyricist-compiled';
   template: `
    <section class="Lyrics">
       <!-- <h2 class="song">{{}}</h2> -->
+      
    </section>
   `,
   styleUrl: './lyricist-compiled.component.css'

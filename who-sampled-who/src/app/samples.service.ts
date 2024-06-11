@@ -8,8 +8,11 @@ export class SamplesService {
   // Creating service to get music lyrics from Genius API
 lyricsList = [];
 
+// filteredLyrics: LyricistCompiled[] = [];
+
   getSongLyrics(): LyricistCompiled[] {
     return this.lyricsList;
   }
-  constructor() { }
+  constructor() {
+   }
 }
